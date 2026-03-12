@@ -1,20 +1,29 @@
 from Contact import Contact
 from Address_Book import Address_Book
 
-cont1=Contact(
-    "Shreyash",
-    "Singh",
-    "Varanasi",
-    "Varanasi",
-    "Uttar pradesh",
-    "235",
-    "123456",
-    "vk18@gmail.com"
+# taken user input and add it to contact class
+F_name=input("Enter first name:")
+L_name=input("Enter Last name:")
+address=input("Enter your Address:")
+city=input("Enter your city:")
+state=input("Enter your State:")
+zip=input("Enter your zip code: ")
+phone=int(input("Enter phone number:"))
+email=input("Enter your email:")
 
+cont1=Contact(
+   F_name,
+   L_name,
+   address,
+   city,
+   state,
+   zip,
+   phone,
+   email
 )
 
 book1=Address_Book()
 # addedd contact in address_Book using contact object cont1
-print("\nUser details are:")
+
 book1.add_Contact(cont1)
 book1.display_contact()
