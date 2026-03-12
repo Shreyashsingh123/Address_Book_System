@@ -7,8 +7,9 @@ class Address_Book: #to manage mutlitple contacts
         self.contact.append(c)
     def display_contact(self):
         for contacts in self.contact:
+            print("\nUser Details are:")
             contacts.display() #calls display for each contact from list
-            print("\n**************")
+            print("\n**************\n")
 
 # created a contact details using contact class
 
