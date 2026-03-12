@@ -1,6 +1,6 @@
 from Contact import Contact
 from Address_Book import Address_Book
-from EditDetails import editdetails
+
 # taken user input and add it to contact class
 F_name=input("Enter first name:")
 L_name=input("Enter Last name:")
@@ -33,5 +33,11 @@ e1=input("If you want to e1 details choose y or choose n [y/n]")
 if e1.upper()=='Y':
    #  if yes then edit existing contact person using their name or first name
     n=input("Enter the first name of user whose detail you want to edit: ")
-    editdetails(book1,n)
+    book1.editdetails(n)
 book1.display_contact()
+
+# enter user to delete 
+deleteuser=input("Choose y to delete contact and n to not [Y/N]")
+if deleteuser.upper()=='Y':
+    n=input("Enter first name of user whose details you want to delete")
+    book1.deleteDetails(n)
