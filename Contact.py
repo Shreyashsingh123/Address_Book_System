@@ -11,12 +11,12 @@ class Contact:
         self.phone=phone
         self.email=email
     def display(self):
-        print("First name is:{}".format(self.first_name))
-        print("Last name is:{}".format(self.last_name))
-        print("Address is:{}".format(self.address))
-        print("City is:{}".format(self.city))
-        print("State is:{}".format(self.state))
-        print("Zip is:{}".format(self.zip))
-        print("Phone number is:{}".format(self.phone))
-        print("Email is:{}".format(self.email))
+        print("First name is: {}".format(self.first_name))
+        print("Last name is: {}".format(self.last_name))
+        print("Address is: {}".format(self.address))
+        print("City is: {}".format(self.city))
+        print("State is: {}".format(self.state))
+        print("Zip is: {}".format(self.zip))
+        print("Phone number is: {}".format(self.phone))
+        print("Email is: {}".format(self.email))
 
