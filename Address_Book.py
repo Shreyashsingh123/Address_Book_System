@@ -2,7 +2,7 @@ from Contact import Contact
 
 class Address_Book: #to manage mutlitple contacts
     def __init__(self):
-        self.contact=[]
+        self.contact=[] #list of contact details
     def add_Contact(self,c):
         self.contact.append(c)
     def display_contact(self):

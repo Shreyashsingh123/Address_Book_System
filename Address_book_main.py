@@ -1,6 +1,6 @@
 from Contact import Contact
 from Address_Book import Address_Book
-
+from EditDetails import editdetails
 # taken user input and add it to contact class
 F_name=input("Enter first name:")
 L_name=input("Enter Last name:")
@@ -27,4 +27,11 @@ book1=Address_Book()
 # addedd contact in address_Book using contact object cont1
 
 book1.add_Contact(cont1)
+book1.display_contact()
+
+e1=input("If you want to e1 details choose y or choose n [y/n]")
+if e1.upper()=='Y':
+   #  if yes then edit existing contact person using their name or first name
+    n=input("Enter the first name of user whose detail you want to edit: ")
+    editdetails(book1,n)
 book1.display_contact()
