@@ -67,8 +67,17 @@ Search_city=input("Enter city name to search:")
 Search_state=input("Enter name of state to search:")
 books.Search_city(Search_city,Search_state)
 
+# view person in city or state with help os dictionary
 view=input("Do you want to view details based on city or state [Y/N]")
 if view.upper()=='Y':
     viewcity=input("Enter city to view: ")
     viewstate=input("Enter state to view: ")
-    books.View_Person(viewcity,viewstate)
+    viewbook=books.View_Person(viewcity,viewstate)
+    print(viewbook)
+
+# count person in city or state
+view2=input("Do you want to count person in a particular city or state [Y/N]")
+if view2.upper()=='Y':
+    viewcity=input("Enter city name to count number of person :")
+    viewstate=input("Enter state name to count number of person :")
+    books.count_by_city(viewcity,viewstate)
