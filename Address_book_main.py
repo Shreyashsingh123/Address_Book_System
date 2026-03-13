@@ -67,3 +67,8 @@ Search_city=input("Enter city name to search:")
 Search_state=input("Enter name of state to search:")
 books.Search_city(Search_city,Search_state)
 
+view=input("Do you want to view details based on city or state [Y/N]")
+if view.upper()=='Y':
+    viewcity=input("Enter city to view: ")
+    viewstate=input("Enter state to view: ")
+    books.View_Person(viewcity,viewstate)

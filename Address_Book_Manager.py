@@ -26,4 +26,19 @@ class Address_Book_Manager: #to manage mutlitple contacts
 
         if not found:
                 print("No contact in this city or state")
+    
+    def View_Person(self,city,state):
+        result={}
+        for name,book in self.Address_Book_dict.items():
+            city_dict={}
+            state_dict={}
+            for user in book.contact:
+                if user.city==city:
+                    city_dict[user.city]=city_dict.get(user.city,[])+[user.first_name]
+                if user.state==state:
+                    state_dict[user.state]=state_dict.get(user.state,[])+[user.first_name]
+            
+            result[name]=[city_dict,state_dict]
+            print(result)
+
 
