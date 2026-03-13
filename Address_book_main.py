@@ -6,7 +6,8 @@ books=Address_Book_Manager()
 takeinput=True
 while(takeinput):   
    n=input("Enter  Address book name: ")
-   books.add_Address_Book_to_dict(n)
+   if n not in books.Address_Book_dict:
+      books.add_Address_Book_to_dict(n)
    book1=books.Address_Book_dict[n]
 
    F_name=input("Enter first name:")

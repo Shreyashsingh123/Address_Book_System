@@ -4,7 +4,13 @@ class Address_Book: #to manage mutlitple contacts
     def __init__(self):
         self.contact=[] #list of contact details
     def add_Contact(self,c):
+        for i in self.contact:
+            if i.first_name==c.first_name:# to check unique name should be there
+                print("Contact is already present.") #one address book one name 
+                return
+           
         self.contact.append(c)
+                
     def display_contact(self):
         for contacts in self.contact:
             print("\nUser Details are:")
