@@ -6,9 +6,24 @@ class Address_Book_Manager: #to manage mutlitple contacts
         
     def add_Address_Book_to_dict(self,name):
         self.Address_Book_dict[name]=Address_Book()
+
     def display_Address_Book(self):
         print("**************")
         for name,val in self.Address_Book_dict.items():
             print("Name of Addresss book is: ",name)
             val.display_contact()
+
+    def Search_city(self,city,state):
+        found=False
+        for name,detail in self.Address_Book_dict.items():
+            for i in detail.contact:
+                if i.city==city:
+                    print(name,":","City: ",city,":", "name:",i.first_name,i.last_name)
+                    found=True
+                if i.state==state:
+                    print(name,":","State: ",state,":", "name:",i.first_name,i.last_name)
+                    found=True
+
+        if not found:
+                print("No contact in this city or state")
 

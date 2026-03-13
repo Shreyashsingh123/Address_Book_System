@@ -6,6 +6,7 @@ books=Address_Book_Manager()
 takeinput=True
 while(takeinput):   
    n=input("Enter  Address book name: ")
+   
    if n not in books.Address_Book_dict:
       books.add_Address_Book_to_dict(n)
    book1=books.Address_Book_dict[n]
@@ -60,4 +61,9 @@ while(takeinput):
 d=input("Do you want to display Adress Book or not [Y/N]")
 if d.lower()=='y':
     books.display_Address_Book()
-   
+
+# search by city
+Search_city=input("Enter city name to search:")
+Search_state=input("Enter name of state to search:")
+books.Search_city(Search_city,Search_state)
+

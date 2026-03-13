@@ -14,7 +14,7 @@ class Address_Book: #to manage mutlitple contacts
     def display_contact(self):
         for contacts in self.contact:
             print("\nUser Details are:")
-            contacts.display() #calls display for each contact from list
+            contacts.display() #calls display method from contact file for each contact from list
             print("\n**************\n")
 
     def editdetails(self,name):
@@ -62,8 +62,7 @@ class Address_Book: #to manage mutlitple contacts
                             i.email=n
                         case 0:
                             break
-                            
-                        
+                                           
     def deleteDetails(self,name):
         found=False
         for i in self.contact:
