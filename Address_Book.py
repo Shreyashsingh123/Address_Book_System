@@ -11,9 +11,6 @@ class Address_Book: #to manage mutlitple contacts
             contacts.display() #calls display for each contact from list
             print("\n**************\n")
 
-# created a contact details using contact class
-
-
     def editdetails(self,name):
         for i in self.contact: #address book contact details accessed here
             
