@@ -21,7 +21,6 @@ while(True):
             break
         case 1:
             book1.display_contact()
-            # print("****************")
         case 2:
             name=input("Enter the name of the contact you want to edit:")
             book1.editdetails(name)
@@ -77,9 +76,11 @@ if view2.upper()=='Y':
     viewstate=input("Enter state name to count number of person :")
     books.count_by_city(viewcity,viewstate)
 
+
 sorte=input("\nDo you want sort details by first name [Y/N]")
 if sorte.upper()=='Y':
     book1.sort_name()
+
 
 sort2=input("\ndo you want to sort by state,city or zip [Y/N]")
 if sort2.upper()=='Y':
