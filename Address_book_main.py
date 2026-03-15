@@ -32,7 +32,7 @@ while(takeinput):
    )
 # addedd contact in address_Book using contact object cont1
    book1.add_Contact(cont1)
-   print("Contact added successfully!\n")
+   print("\nContact added successfully!\n")
 
    print("Choose 1 to Display Contacts")
    print("Choose 2 to edit Contact")
@@ -58,7 +58,7 @@ while(takeinput):
    if addperson.lower() != 'y':
       takeinput=False
 
-d=input("Do you want to display Adress Book or not [Y/N]")
+d=input("Do you want to display Adress Book or not [Y/N]  ")
 if d.lower()=='y':
     books.display_Address_Book()
 
@@ -68,7 +68,7 @@ Search_state=input("Enter name of state to search:")
 books.Search_city(Search_city,Search_state)
 
 # view person in city or state with help os dictionary
-view=input("Do you want to view details based on city or state [Y/N]")
+view=input("\nDo you want to view details based on city or state [Y/N]")
 if view.upper()=='Y':
     viewcity=input("Enter city to view: ")
     viewstate=input("Enter state to view: ")
@@ -76,8 +76,12 @@ if view.upper()=='Y':
     print(viewbook)
 
 # count person in city or state
-view2=input("Do you want to count person in a particular city or state [Y/N]")
+view2=input("\nDo you want to count person in a particular city or state [Y/N]")
 if view2.upper()=='Y':
     viewcity=input("Enter city name to count number of person :")
     viewstate=input("Enter state name to count number of person :")
     books.count_by_city(viewcity,viewstate)
+
+sorte=input("\nDo you want sorted details [Y/N]")
+if sorte.upper()=='Y':
+    book1.sort_name()

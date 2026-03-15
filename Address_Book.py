@@ -13,7 +13,7 @@ class Address_Book: #to manage mutlitple contacts
                 
     def display_contact(self):
         for contacts in self.contact:
-            print("\nUser Details are:")
+            print("User Details are:")
             contacts.display() #calls display method from contact file for each contact from list
             print("\n**************\n")
 
@@ -73,3 +73,11 @@ class Address_Book: #to manage mutlitple contacts
                 break
         if not found:
             print("Contact not found")
+    def sort_name(self):
+        self.contact.sort(key=lambda x:x.first_name)
+
+        print("\nContact Sorted Successfully")
+        p=input("Do you want to view sorted details [Y/N]:  ")
+        if p.upper()=='Y':
+            self.display_contact()
+            

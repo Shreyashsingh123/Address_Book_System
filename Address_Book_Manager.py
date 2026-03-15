@@ -8,7 +8,7 @@ class Address_Book_Manager: #to manage mutlitple contacts
         self.Address_Book_dict[name]=Address_Book()
 
     def display_Address_Book(self):
-        print("**************")
+        print("\n **************")
         for name,val in self.Address_Book_dict.items():
             print("Name of Addresss book is: ",name)
             val.display_contact()
@@ -55,4 +55,5 @@ class Address_Book_Manager: #to manage mutlitple contacts
         
         print("Number of person in city {} is\t".format(city),city_count)
         print("Number of person in state{} is:".format(state),state_count)
+       
 
