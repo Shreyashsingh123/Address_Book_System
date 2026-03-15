@@ -82,6 +82,11 @@ if view2.upper()=='Y':
     viewstate=input("Enter state name to count number of person :")
     books.count_by_city(viewcity,viewstate)
 
-sorte=input("\nDo you want sorted details [Y/N]")
+sorte=input("\nDo you want sort details by first name [Y/N]")
 if sorte.upper()=='Y':
     book1.sort_name()
+
+sort2=input("\ndo you want to sort by state,city or zip [Y/N]")
+if sort2.upper()=='Y':
+    s=input("enter city or state or zip to which you want to sort  ")
+    book1.sort_by_city_state(s)
