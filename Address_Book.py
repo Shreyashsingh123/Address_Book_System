@@ -1,8 +1,34 @@
 from Contact import Contact
-
+import json
 class Address_Book: #to manage mutlitple contacts
     def __init__(self):
         self.contact=[] #list of contact details
+    
+    def create_new_contact(self):
+        F_name=input("Enter first name:")
+        L_name=input("Enter Last name:")
+        address=input("Enter your Address:")
+        city=input("Enter your city:")
+        state=input("Enter your State:")
+        zip=input("Enter your zip code: ")
+        phone=int(input("Enter phone number:"))
+        email=input("Enter your email:")
+     
+        cont1=Contact(
+              F_name,
+              L_name,
+              address,
+              city,
+              state,
+              zip,
+              phone,
+              email
+        )
+    # addedd contact in address_Book using contact object cont1
+        self.add_Contact(cont1)
+        print("\nContact added successfully!\n")
+
+        
     def add_Contact(self,c):
         for i in self.contact:
             if i.first_name==c.first_name:# to check unique name should be there
@@ -92,3 +118,32 @@ class Address_Book: #to manage mutlitple contacts
         print("contact sorted successfully based on",{s})
         
          
+    # file read and write in data1.txt use case 13
+    def save_data(self,filename):
+        with open(f"UserData//{filename}", "w") as file:
+            for cont in self.contact:
+                data1=f"{cont.first_name},{cont.last_name},{cont.address},{cont.city},{cont.state},{cont.zip},{cont.phone},{cont.email}\n"
+                file.write(data1)
+        print("Contact saved to file successfully\n")
+    
+    def read_data(self,filename):
+        try:
+            with open(f"UserData//{filename}", "r") as data:
+                for val in data:
+                    data1 = val.strip().split("|")
+
+                    if len(data1) == 8:
+                        cont2 = self.contact(
+                            data1[0], data1[1], data1[2],
+                            data1[3], data1[4], data1[5],
+                            data1[6], data1[7]
+                        )
+                        self.add_Contact(cont2)
+                data.seek(0)
+                print("Address book is",filename)
+                print(data.read())
+
+            print("Contacts displayed from file successfully!\n")
+
+        except FileNotFoundError:
+            print("File not found!")
