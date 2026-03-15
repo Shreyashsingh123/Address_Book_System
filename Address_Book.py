@@ -126,13 +126,14 @@ class Address_Book: #to manage mutlitple contacts
                 file.write(data1)
         print("Contact saved to file successfully\n")
     
+    # read data from file
     def read_data(self,filename):
         try:
             with open(f"UserData//{filename}", "r") as data:
                 for val in data:
                     data1 = val.strip().split("|")
 
-                    if len(data1) == 8:
+                    if len(data1) == 8:# 8 data is there in contact
                         cont2 = self.contact(
                             data1[0], data1[1], data1[2],
                             data1[3], data1[4], data1[5],
