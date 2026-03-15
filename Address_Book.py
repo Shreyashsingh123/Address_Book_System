@@ -76,8 +76,19 @@ class Address_Book: #to manage mutlitple contacts
     def sort_name(self):
         self.contact.sort(key=lambda x:x.first_name)
 
-        print("\nContact Sorted Successfully")
-        p=input("Do you want to view sorted details [Y/N]:  ")
-        if p.upper()=='Y':
-            self.display_contact()
-            
+        print("\nContact Sorted Successfully by (first name)")
+
+    # sort by city,stete or zip
+     # input city,state or zip based on value get sorted
+    def sort_by_city_state(self,s):
+        if s=="city":
+            self.contact.sort(key=lambda x:x.city)
+        elif s=="state":
+            self.contact.sort(key=lambda x:x.state)
+        elif s=="zip":
+            self.contact.sort(key=lambda x:x.zip)
+        else:
+            print("invalid value")
+        print("contact sorted successfully based on",{s})
+        
+         
