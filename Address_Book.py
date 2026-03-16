@@ -100,7 +100,7 @@ class Address_Book: #to manage mutlitple contacts
         if not found:
             print("Contact not found")
     def sort_name(self):
-        self.contact.sort(key=lambda x:x.first_name)
+        self.contact.sort(key=lambda x:x.first_name.lower())
 
         print("\nContact Sorted Successfully by (first name)")
 
@@ -119,32 +119,60 @@ class Address_Book: #to manage mutlitple contacts
         
          
     # file read and write in data1.txt use case 13
-    def save_data(self,filename):
-        with open(f"UserData//{filename}", "w") as file:
-            for cont in self.contact:
-                data1=f"{cont.first_name},{cont.last_name},{cont.address},{cont.city},{cont.state},{cont.zip},{cont.phone},{cont.email}\n"
-                file.write(data1)
-        print("Contact saved to file successfully\n")
-    
+    def save_data_to_file(self, books, filename):
+
+        file_format = input("Save to file [1] TXT | [2] CSV : ")
+
+        if file_format == "1":
+            separator = " | "
+            extension = ".txt"
+        elif file_format == "2":
+            separator = ","
+            extension = ".csv"
+        else:
+            print("Enter valid option!")
+            return
+        with open(f"UserData\\{filename}{extension}", "w") as file:
+            for book_name, book in books.Address_Book_dict.items():
+                for contact in book.contact:
+                    data =(f"{book_name}{separator}{contact.first_name}{separator}{contact.last_name}{separator}{contact.address}{separator}{contact.city}{separator}{contact.state}{separator}{contact.zip}{separator}{contact.phone}{separator}{contact.email}\n")
+
+                    file.write(data)
+
+        print("Contacts saved to file successfully!")
     # read data from file
-    def read_data(self,filename):
+    def load_data_from_file(self, books, filename):
+        # print(filename)
+        file_format = input("Enter 1 for TXT file and 2 for CSV file: ")
+
+        if file_format == "1":
+            separator = "|"
+            extension = ".txt"
+        elif file_format == "2":
+            separator = ","
+            extension = ".csv"
+        else:
+            print("Enter valid option!")
+            return
+
         try:
-            with open(f"UserData//{filename}", "r") as data:
-                for val in data:
-                    data1 = val.strip().split("|")
+            with open(f"UserData\\{filename}{extension}", "r") as file:
+                for line in file:
+                    data = line.strip().split(separator)
+                    if len(data) == 9:
+                        book_name = data[0]
+                        books.add_Address_Book_to_dict(book_name)
+                        book = books.Address_Book_dict[book_name]
 
-                    if len(data1) == 8:# 8 data is there in contact
-                        cont2 = self.contact(
-                            data1[0], data1[1], data1[2],
-                            data1[3], data1[4], data1[5],
-                            data1[6], data1[7]
+                        new_contact = Contact(
+                            data[1], data[2],
+                            data[3], data[4],
+                            data[5], data[6],
+                            data[7], data[8]
                         )
-                        self.add_Contact(cont2)
-                data.seek(0)
-                print("Address book is",filename)
-                print(data.read())
+                        book.add_Contact(new_contact)
 
-            print("Contacts displayed from file successfully!\n")
+            print("Contacts loaded from file successfully!")
 
         except FileNotFoundError:
             print("File not found!")
