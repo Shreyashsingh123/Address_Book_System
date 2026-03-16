@@ -176,3 +176,53 @@ class Address_Book: #to manage mutlitple contacts
 
         except FileNotFoundError:
             print("File not found!")
+    
+    def save_to_json(self,books,filename):
+        address_books_dict = {}
+        for name_ab, book in books.Address_Book_dict.items():
+            address_books_dict[name_ab] = []
+            for contact in book.contact:
+                data = {
+                    "first_name": contact.first_name,
+                    "last_name": contact.last_name,
+                    "address": contact.address,
+                    "city": contact.city,
+                    "state": contact.state,
+                    "zip": contact.zip,
+                    "phone": contact.phone,
+                    "email": contact.email
+                }
+                address_books_dict[name_ab].append(data)
+        with open(f"UserData/{filename}", "w") as file:
+            json.dump(address_books_dict,file,indent=4)
+        
+        print("Contacts saved to file successfully!")
+    
+ 
+    def load_from_json(self, books, filename):
+        try:
+            with open(f"UserData/{filename}", "r") as file:
+                data1 = json.load(file)
+
+            for name_ab, b in data1.items():
+                books.add_Address_Book_to_dict(name_ab)
+                book = books.Address_Book_dict[name_ab]
+
+                for data in b:
+                    new_contact = Contact(
+                        data["first_name"],
+                        data["last_name"],
+                        data["address"],
+                        data["city"],
+                        data["state"],
+                        data["zip"],
+                        data["phone"],
+                        data["email"]
+                    )
+
+                    book.add_Contact(new_contact)
+
+            print("Contacts loaded from JSON successfully!")
+
+        except FileNotFoundError:
+            print("File not found!")

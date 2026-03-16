@@ -19,6 +19,8 @@ while(True):
    print("Choose 11 to sort details by state,city or zip")
    print("Choose 12 to Add contact into files")
    print("Choose 13 to load Contact from files")
+   print("Choose 14 to save Contact into json")
+   print("Choose 15 to load Contact from json")
 #    print("Choose 9 to save contact to file")
    print("Choose 0 to Exit the program")
    choice = int(input("Enter your choice: "))
@@ -72,6 +74,16 @@ while(True):
         case 13:
             if book1!=None:
                 book1.load_data_from_file(books,"address book")
+            else:
+                print("Initialize Address Book first.")
+        case 14:
+            if book1!=None:
+                book1.save_to_json(books,"address_book1")
+            else:
+                print("Initialize Address Book first.")
+        case 15:
+            if book1!=None:
+                book1.load_from_json(books,"address_book1")
             else:
                 print("Initialize Address Book first.")
 
