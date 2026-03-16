@@ -20,11 +20,18 @@ while(True):
    print("Choose 12 to Add contact into files")
    print("Choose 13 to load Contact from files")
 #    print("Choose 9 to save contact to file")
-   print("Choose 0 to Exit")
+   print("Choose 0 to Exit the program")
    choice = int(input("Enter your choice: "))
    match choice:
         case 0:
             break
+        case 1:
+           n=input("Enter  Address book name: ")
+           if n not in books.Address_Book_dict:
+             books.add_Address_Book_to_dict(n)
+           book1=books.Address_Book_dict[n]
+        case 2:
+           book1.create_new_contact()
         case 3:
             book1.display_contact()
         case 4:
@@ -35,11 +42,6 @@ while(True):
         case 5:            
             name=input("Enter the name of the contact you want to delete:")
             book1.deleteDetails(name)
-        case 1:
-           n=input("Enter  Address book name: ")
-           if n not in books.Address_Book_dict:
-             books.add_Address_Book_to_dict(n)
-           book1=books.Address_Book_dict[n]
         case 6:
            books.display_Address_Book()
         case 7:
@@ -61,8 +63,7 @@ while(True):
         case 11:
            s=input("enter city or state or zip to which you want to sort  ")
            book1.sort_by_city_state(s)
-        case 2:
-           book1.create_new_contact()
+        
         case 12:
             if book1!=None:
                 book1.save_data_to_file(books,"address book")
