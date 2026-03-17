@@ -1,6 +1,6 @@
-from Contact import Contact
-from Address_Book import Address_Book
-from Address_Book_Manager import Address_Book_Manager
+from App.Models.Contact import Contact
+from App.Models.Address_Book import Address_Book
+from App.Services.Address_Book_Manager import Address_Book_Manager
 # taken multiple user input and add it to contact class
 books=Address_Book_Manager()
 book1=None

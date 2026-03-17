@@ -1,20 +1,8 @@
-from Contact import Contact
-from Address_Book import Address_Book
-class Address_Book_Manager: #to manage mutlitple contacts
-    def __init__(self):
-        self.Address_Book_dict={}  # craeted dictinary to store multiple address book
-        
-    def add_Address_Book_to_dict(self,name):
-        if name not in self.Address_Book_dict:
-            self.Address_Book_dict[name]=Address_Book()
-
-    def display_Address_Book(self):
-        print("\n **************")
-        for name,val in self.Address_Book_dict.items():
-            print("Name of Addresss book is: ",name)
-            val.display_contact()
-
+class Searching:
     def Search_city(self,city,state):
+        '''
+        Search a person by city name and display result
+        '''
         found=False
         for name,detail in self.Address_Book_dict.items():
             for i in detail.contact:
@@ -28,8 +16,11 @@ class Address_Book_Manager: #to manage mutlitple contacts
         if not found:
                 print("No contact in this city or state")
                 
-    # use case 9 to view person based on city or state
+   
     def View_Person(self,city,state):
+        '''
+        Display person in city or state using dictionary
+        '''
         result={}
         for name,book in self.Address_Book_dict.items():
             city_dict={}
@@ -43,8 +34,11 @@ class Address_Book_Manager: #to manage mutlitple contacts
             result[name]=[city_dict,state_dict]
             return result
         
-    # use case 10 count person in city or state
+    
     def count_by_city(self,city,state):
+        '''
+        Count number of person in city and state and display the  result
+        '''
         city_count=0
         state_count=0
         for k,v in self.Address_Book_dict.items():
